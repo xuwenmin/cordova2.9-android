@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="C:/Java/adt/adt/sdk/platforms/android-18/android.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
