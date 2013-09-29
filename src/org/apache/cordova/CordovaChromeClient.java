@@ -104,7 +104,7 @@ public class CordovaChromeClient extends WebChromeClient {
     public boolean onJsAlert(WebView view, String url, String message, final JsResult result) {
         AlertDialog.Builder dlg = new AlertDialog.Builder(this.cordova.getActivity());
         dlg.setMessage(message);
-        dlg.setTitle("Alert");
+        dlg.setTitle("提示:");
         //Don't let alerts break the back button
         dlg.setCancelable(true);
         dlg.setPositiveButton(android.R.string.ok,

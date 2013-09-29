@@ -100,6 +100,8 @@ public class FileHelper {
     	 	
     	 int _po = uriString.indexOf("qm_");
          if (_po > -1) {
+        	 //除掉qm_,by xuwm on 20130918
+        	 uriString=uriString.replaceAll("qm_", "");
         	 LOG.e(LOG_TAG, "xuwenmin uristring path is  %s",uriString);
         	 Uri uri = Uri.parse("file:///android_asset/www/"+uriString);
              String relativePath = uri.getPath().substring(15);

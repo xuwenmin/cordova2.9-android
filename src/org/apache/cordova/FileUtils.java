@@ -869,7 +869,7 @@ public class FileUtils extends CordovaPlugin {
        
 
         JSONObject metadata = new JSONObject();
-        metadata.put("size", 100);
+        metadata.put("size", 1);//此处的大小不做任务处理,一个假值
         metadata.put("type", "");
         metadata.put("name", filePath);
         metadata.put("fullPath", filePath);
@@ -1031,9 +1031,19 @@ public class FileUtils extends CordovaPlugin {
      * @throws IOException
      */
     private byte[] readAsBinaryHelper(String filename, int start, int end) throws IOException {
+    	 InputStream inputStream = FileHelper.getInputStreamFromUriString(filename, cordova);
+    	 //此处进行处理,假如是获取assets里的资源的话,则直接读取所有字节.by xuwm on 20130918    	
+    	 int _po = filename.indexOf("qm_");
+         if (_po > -1) {
+        	 int _count = 0;
+        	 while (_count == 0) {
+        	   _count = inputStream.available();
+        	 }
+        	 end=_count;
+         }
         int numBytesToRead = end - start;
         byte[] bytes = new byte[numBytesToRead];
-        InputStream inputStream = FileHelper.getInputStreamFromUriString(filename, cordova);
+       
         int numBytesRead = 0;
 
         if (start > 0) {
