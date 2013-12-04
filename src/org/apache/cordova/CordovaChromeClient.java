@@ -148,7 +148,7 @@ public class CordovaChromeClient extends WebChromeClient {
     public boolean onJsConfirm(WebView view, String url, String message, final JsResult result) {
         AlertDialog.Builder dlg = new AlertDialog.Builder(this.cordova.getActivity());
         dlg.setMessage(message);
-        dlg.setTitle("Confirm");
+        dlg.setTitle("提示:");
         dlg.setCancelable(true);
         dlg.setPositiveButton(android.R.string.ok,
                 new DialogInterface.OnClickListener() {
